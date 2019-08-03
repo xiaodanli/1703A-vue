@@ -24,6 +24,14 @@ export const routes = [
         component:() => import('@/views/my')
     },
     {
+        path:'/list',
+        component:() => import('@/views/list')
+    },
+    {
+        path:'/add',
+        component:() => import('@/views/add')
+    },
+    {
         path:'*',
         component:() => import('@/views/404')
     }

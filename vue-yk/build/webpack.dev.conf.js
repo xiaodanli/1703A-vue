@@ -42,6 +42,14 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     quiet: true, // necessary for FriendlyErrorsPlugin
     watchOptions: {
       poll: config.dev.poll,
+    },
+    before(app){
+        app.get('/api/list',(req,res) => {
+            let fs = require('fs');
+
+            let list = JSON.parse(fs.readFileSync(path.join(__dirname,'../mock/list.json')));
+            res.send({code:1,data:list})
+        })
     }
   },
   plugins: [
